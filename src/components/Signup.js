@@ -61,7 +61,7 @@ function Signup() {
       profile.confirmpassword !== profile.password
     ) {
       alert.show(
-        <div className='bg-yellow-500 text-white p-3 rounded-full'>
+        <div className='bg-yellow-500 text-white p-3 rounded-lg md:rounded-full'>
           Password must contain atleast 8 characters, one number, both lower and
           uppercase letters and special character. Confirm password and password
           must be the same!
