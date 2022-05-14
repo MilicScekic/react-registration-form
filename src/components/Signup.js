@@ -23,8 +23,11 @@ function Signup() {
 
   const validation = (e) => {
     e.preventDefault();
-    let emailformat = new RegExp(
+    const emailformat = new RegExp(
       '^[a-zA-Z0-9._:$!%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]$'
+    );
+    const passwordformat = new RegExp(
+      `^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$`
     );
     if (profile.username.length < 6 || profile.username.length > 12) {
       alert.show(
@@ -53,11 +56,15 @@ function Signup() {
     } else if (
       profile.password < 1 ||
       profile.confirmpassword < 1 ||
+      !passwordformat.test(profile.password) ||
+      !passwordformat.test(profile.confirmpassword) ||
       profile.confirmpassword !== profile.password
     ) {
       alert.show(
         <div className='bg-yellow-500 text-white p-3 rounded-full'>
-          Confirm password and password must be the same!
+          Password must contain atleast 8 characters, one number, both lower and
+          uppercase letters and special character. Confirm password and password
+          must be the same!
         </div>
       );
     } else {
