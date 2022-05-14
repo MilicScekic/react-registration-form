@@ -29,25 +29,25 @@ function Signup() {
     if (profile.username.length < 6 || profile.username.length > 12) {
       alert.show(
         <div className='bg-red-500 text-white p-3 rounded-full'>
-          Username mora sadržati minimum 6 a maksimum 12 karaktera
+          Username must contain a minimum of 6 and a maximum of 12 characters!
         </div>
       );
     } else if (profile.firstname.length < 1) {
       alert.show(
         <div className='bg-yellow-500 text-white p-3 rounded-full'>
-          Firstname je obavezno polje
+          Firstname is a required field!
         </div>
       );
     } else if (profile.lastname.length < 1) {
       alert.show(
         <div className='bg-yellow-500 text-white p-3 rounded-full'>
-          Lastname je obavezno polje
+          Lastname is a required field!
         </div>
       );
     } else if (!emailformat.test(profile.email)) {
       alert.show(
         <div className='bg-red-500 text-white p-3 rounded-full'>
-          Email adresa nije dobro ukucana
+          Email address is not valid!
         </div>
       );
     } else if (
@@ -57,7 +57,7 @@ function Signup() {
     ) {
       alert.show(
         <div className='bg-yellow-500 text-white p-3 rounded-full'>
-          ConfirmPassword i password moraju biti isti
+          Confirm password and password must be the same!
         </div>
       );
     } else {
@@ -71,7 +71,6 @@ function Signup() {
           password,
         })
         .then(function (response) {
-          console.log(response);
           alert.show(
             <div className='bg-green-500 text-white p-3 rounded-full'>
               Account created! username: {response.data.username}, firstname:{' '}
